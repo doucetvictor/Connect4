@@ -11,6 +11,7 @@ SRC =	src/connect.c \
 	src/options.c \
 	src/loop.c \
 	src/win.c \
+	src/win_diag.c \
 	src/win_referee.c
 
 MAIN = 	src/main.c

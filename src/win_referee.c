@@ -7,7 +7,14 @@
 
 #include "connect.h"
 
-void win_diag_referee(game_t *game, int x, int y)
+void win_diag_referee_top(game_t *game, int x, int y)
+{
+    for (int i = 0; i < 4; i++) {
+        game->map[y + i][x - i] = game->referee;
+    }
+}
+
+void win_diag_referee_bottom(game_t *game, int x, int y)
 {
     for (int i = 0; i < 4; i++) {
         game->map[y - i][x - i] = game->referee;

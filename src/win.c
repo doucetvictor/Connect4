@@ -22,26 +22,6 @@ static int check_tie(game_t *game)
     return 1;
 }
 
-static int check_diag(game_t *game, char avatar, int x, int y)
-{
-    char c = 0;
-    int j = 0;
-
-    while (x > 0 && y > 0) {
-        --x;
-        --y;
-    }
-    for (int i = 0; game->map[y + i] && (c = game->map[y + i][x + i]); i++) {
-        if (c == avatar && ++j == 4) {
-            win_diag_referee(game, x + i, y + i);
-            return 1;
-        } else {
-            j = 0;
-        }
-    }
-    return 0;
-}
-
 static int check_col(game_t *game, char avatar, int x)
 {
     char c = 0;
