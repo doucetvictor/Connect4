@@ -5,7 +5,8 @@
 ## Makefile
 ##
 
-SRC =	src/connect.c
+SRC =	src/connect.c \
+	src/options.c
 
 MAIN = 	src/main.c
 
@@ -20,7 +21,7 @@ TESTS = tests/test_connect.c
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Wpedantic
-CPPFLAGS = -I include/
+CPPFLAGS = -I include/ -I lib/my/include/
 TESTFLAGS = --coverage -lcriterion
 LDLIBS = lib/my/libmy.a
 
