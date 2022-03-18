@@ -1,11 +1,11 @@
 /*
 ** EPITECH PROJECT, 2022
-** project
+** duostumper2
 ** File description:
-** Project
+** Connect4
 */
 
-int project(int argc, char **argv)
+int connect(int argc, char **argv)
 {
     return (0);
 }

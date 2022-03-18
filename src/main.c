@@ -1,13 +1,13 @@
 /*
 ** EPITECH PROJECT, 2022
-** project
+** duostumper2
 ** File description:
 ** Main
 */
 
-#include "project.h"
+#include "connect.h"
 
 int main(int argc, char **argv)
 {
-    return (project(argc, argv));
+    return (connect(argc, argv));
 }

@@ -1,4 +1,4 @@
-project_binary
+connect4
 unit_tests
 *~
 *.a
@@ -7,3 +7,4 @@ unit_tests
 *.gcno
 .idea/
 .vscode/
+sujet/

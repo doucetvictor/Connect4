@@ -5,24 +5,24 @@
 ## Makefile
 ##
 
-SRC =	src/project.c
+SRC =	src/connect.c
 
 MAIN = 	src/main.c
 
 OBJ = 	$(SRC:.c=.o) \
 		$(MAIN:.c=.o)
 
-NAME = project
+NAME = connect4
 INC = include/
 
 TEST = unit_tests
-TESTS = tests/test_project.c
+TESTS = tests/test_connect.c
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Wpedantic
 CPPFLAGS = -I include/
 TESTFLAGS = --coverage -lcriterion
-LDLIBS = lib/libmy.a
+LDLIBS = lib/my/libmy.a
 
 all: $(NAME)
 
@@ -46,6 +46,8 @@ re:	fclean all
 tests_run:
 	$(RM) *.gcda
 	$(RM) *.gcno
-	make re -C lib/my/
+	make -C lib/my/
 	$(CC) -o $(TEST) $(SRC) $(TESTS) -I $(INC) $(LDLIBS) $(TESTFLAGS)
 	./$(TEST)
+
+.PHONY: all clean fclean re tests_run

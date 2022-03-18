@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2022
-** Default
+** duostumper2
 ** File description:
 ** Unit tests
 */
