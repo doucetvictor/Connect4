@@ -6,6 +6,7 @@
 ##
 
 SRC =	src/connect.c \
+	src/input.c \
 	src/options.c
 
 MAIN = 	src/main.c
