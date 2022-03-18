@@ -21,5 +21,6 @@ int connect(int argc, char **argv);
 int get_options(int argc, char **argv, game_t *game);
 int get_player_choice(char c);
 void board_display(char **map);
+int check_win(game_t *game, char avatar, int x, int y);
 
 #endif
