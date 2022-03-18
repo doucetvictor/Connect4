@@ -9,5 +9,5 @@
 
 int main(int argc, char **argv)
 {
-    return (connect(argc, argv));
+    return (connectfour(argc, argv));
 }

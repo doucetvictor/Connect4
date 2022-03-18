@@ -18,7 +18,7 @@ typedef struct game_s {
 } game_t;
 
 int check_win(game_t *game, char avatar, int x, int y);
-int connect(int argc, char **argv);
+int connectfour(int argc, char **argv);
 int get_options(int argc, char **argv, game_t *game);
 int get_player_choice(char c, game_t *game);
 void board_display(char **map);

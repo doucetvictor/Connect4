@@ -54,7 +54,7 @@ tests_run:
 	$(RM) *.gcda
 	$(RM) *.gcno
 	make -C lib/my/
-	$(CC) -o $(TEST) $(SRC) $(TESTS) -I $(INC) $(LDLIBS) $(TESTFLAGS)
+	$(CC) -o $(TEST) $(SRC) $(TESTS) $(CPPFLAGS) $(LDLIBS) $(TESTFLAGS)
 	./$(TEST)
 
 .PHONY: all clean fclean re tests_run

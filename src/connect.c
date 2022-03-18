@@ -62,7 +62,7 @@ static int error_handling(game_t *game)
     return (1);
 }
 
-int connect(int argc, char **argv)
+int connectfour(int argc, char **argv)
 {
     game_t *game = malloc(sizeof(game_t));
 
