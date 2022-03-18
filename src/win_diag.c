@@ -13,15 +13,15 @@ static int check_diag_top(game_t *game, char avatar, int x, int y)
     int j = 0;
 
     while (y > 0 && game->map[x + 1]) {
-	--y;
-	++x;
+        --y;
+        ++x;
     }
     for (int i = 0; x - i >= 0 && (c = game->map[x - i][y + i]); i++) {
         j = (c == avatar ? j + 1 : 0);
-	if (j == 4) {
+        if (j == 4) {
             win_diag_referee_top(game, y + i, x - i);
             return 1;
-	}
+        }
     }
     return 0;
 }

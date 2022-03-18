@@ -31,7 +31,7 @@ static int player_interaction(game_t *game, char avatar)
         return (1);
     }
     if (check_win(game, avatar, result, input - 1)) {
-          return (1);
+        return (1);
     }
     board_display(game->map);
     return (0);
