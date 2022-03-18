@@ -10,4 +10,6 @@
 
 int connect(int argc, char **argv);
 
+int get_player_choice(char c);
+
 #endif
