@@ -17,6 +17,7 @@ static int check_tie(game_t *game)
             return 0;
         }
     }
+    board_display(game->map);
     my_putstr("It's a tie, nobody wins.\n");
     return 1;
 }
@@ -30,8 +31,9 @@ static int check_diag(game_t *game, char avatar, int x, int y)
         --x;
         --y;
     }
-    for (int i = 0; (c = game->map[y + i][x + i]); i++) {
+    for (int i = 0; game->map[y + i] && (c = game->map[y + i][x + i]); i++) {
         if (c == avatar && ++j == 4) {
+            win_diag_referee(game, x + i, y + i);
             return 1;
         } else {
             j = 0;
@@ -45,11 +47,11 @@ static int check_col(game_t *game, char avatar, int x)
     char c = 0;
     int j = 0;
 
-    for (int i = 0; (c = game->map[i][x]); i++) {
-        if (c == avatar && ++j == 4) {
+    for (int i = 0; game->map[i] && (c = game->map[i][x]); i++) {
+        j = (c == avatar ? j + 1 : 0);
+        if (j == 4) {
+            win_col_referee(game, x, i);
             return 1;
-        } else {
-            j = 0;
         }
     }
     return 0;
@@ -61,10 +63,10 @@ static int check_row(game_t *game, char avatar, int y)
     int j = 0;
 
     for (int i = 0; (c = game->map[y][i]); i++) {
-        if (c == avatar && ++j == 4) {
+        j = (c == avatar ? j + 1 : 0);
+        if (j == 4) {
+            win_row_referee(game, i, y);
             return 1;
-        } else {
-            j = 0;
         }
     }
     return 0;
@@ -72,11 +74,12 @@ static int check_row(game_t *game, char avatar, int y)
 
 int check_win(game_t *game, char avatar, int x, int y)
 {
-    int row = check_row(game, avatar, y);
-    int col = check_col(game, avatar, x);
+    int row = check_row(game, avatar, x);
+    int col = check_col(game, avatar, y);
     int diag = check_diag(game, avatar, x, y);
 
     if (row || col || diag) {
+        board_display(game->map);
         my_printf("Congrats, player %c won!\n", avatar);
         return 1;
     }

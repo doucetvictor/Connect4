@@ -23,5 +23,8 @@ int get_options(int argc, char **argv, game_t *game);
 int get_player_choice(char c, game_t *game);
 void board_display(char **map);
 void game_loop(game_t *game);
+void win_col_referee(game_t *game, int x, int y);
+void win_diag_referee(game_t *game, int x, int y);
+void win_row_referee(game_t *game, int x, int y);
 
 #endif
