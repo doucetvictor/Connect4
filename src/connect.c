@@ -9,8 +9,29 @@
 #include "connect.h"
 #include "my.h"
 
+static void init_map(game_t *game)
+{
+    char **map = malloc(sizeof(char *) * (game->height + 1));
+    char *line = NULL;
+
+    if (map == NULL) {
+        exit(84);
+    }
+    for (int i = 0; i < game->height; i++) {
+        line = malloc(sizeof(char) * (game->width + 1));
+        if (line == NULL) {
+            exit(84);
+        }
+        my_strfill(line, game->width + 1, '.');
+        map[i] = line;
+    }
+    map[game->height] = NULL;
+    game->map = map;
+}
+
 static void init_game(game_t *game)
 {
+    game->map = NULL;
     game->width = 7;
     game->height = 6;
     game->avatar1 = 'X';
@@ -50,5 +71,9 @@ int connect(int argc, char **argv)
     if (!get_options(argc, argv, game) || !error_handling(game)) {
         return (84);
     }
+    init_map(game);
+    game_loop(game);
+    my_free_arrays(1, game->map);
+    free(game);
     return (0);
 }

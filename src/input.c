@@ -7,16 +7,35 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include "connect.h"
 #include "my.h"
 
-int get_player_choice(char c)
+static int check_input(char *input, game_t *game)
+{
+    int size = my_strlen(input);
+    int number = 0;
+
+    if (size == 0 || !my_is_number(input)) {
+        return (0);
+    }
+    number = my_getnbr(input);
+    if (number < 1 || number > game->width) {
+        return (0);
+    }
+    if (game->map[0][number - 1] != '.') {
+        return (0);
+    }
+    return number;
+}
+
+int get_player_choice(char c, game_t *game)
 {
     char *line = 0;
     ssize_t line_len = 0;
     size_t len = 0;
-    int column = -1;
+    int out = 0;
 
-    do {
+    while (!out) {
         my_printf("Player %c, where do you want to play: ", c);
         line_len = getline(&line, &len, stdin);
         if (line_len >= 0) {
@@ -25,10 +44,8 @@ int get_player_choice(char c)
             free(line);
             return -1;
         }
-        if (line_len > 1 && my_str_isnum(line)) {
-            column = my_getnbr(line);
-        }
-    } while (column < 0);
+        out = check_input(line, game);
+    }
     free(line);
-    return column;
+    return (out);
 }
