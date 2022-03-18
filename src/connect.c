@@ -9,7 +9,7 @@
 #include "connect.h"
 #include "my.h"
 
-static void init_map(game_t *game)
+void init_map(game_t *game)
 {
     char **map = malloc(sizeof(char *) * (game->height + 1));
     char *line = NULL;
@@ -29,7 +29,7 @@ static void init_map(game_t *game)
     game->map = map;
 }
 
-static void init_game(game_t *game)
+void init_game(game_t *game)
 {
     game->map = NULL;
     game->width = 7;

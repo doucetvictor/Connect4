@@ -17,6 +17,8 @@ typedef struct game_s {
     char referee;
 } game_t;
 
+void init_map(game_t *game);
+void init_game(game_t *game);
 int check_win(game_t *game, char avatar, int x, int y);
 int connectfour(int argc, char **argv);
 int get_options(int argc, char **argv, game_t *game);

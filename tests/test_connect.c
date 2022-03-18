@@ -104,3 +104,63 @@ Test(error_handling, player_referee_same)
 
     cr_assert_eq(out, 84);
 }
+
+Test(win_handling, win_row)
+{
+    game_t *game = malloc(sizeof(game_t));
+    int out = 0;
+
+    init_game(game);
+    init_map(game);
+    game->map[0][0] = 'X';
+    game->map[0][1] = 'X';
+    game->map[0][2] = 'X';
+    game->map[0][3] = 'X';
+    out = check_win(game, 'X', 0, 0);
+    cr_assert_eq(out, 1);
+}
+
+Test(win_handling, win_col)
+{
+    game_t *game = malloc(sizeof(game_t));
+    int out = 0;
+
+    init_game(game);
+    init_map(game);
+    game->map[0][0] = 'X';
+    game->map[1][0] = 'X';
+    game->map[2][0] = 'X';
+    game->map[3][0] = 'X';
+    out = check_win(game, 'X', 0, 0);
+    cr_assert_eq(out, 1);
+}
+
+Test(win_handling, win_diag_top)
+{
+    game_t *game = malloc(sizeof(game_t));
+    int out = 0;
+
+    init_game(game);
+    init_map(game);
+    game->map[0][3] = 'X';
+    game->map[1][2] = 'X';
+    game->map[2][1] = 'X';
+    game->map[3][0] = 'X';
+    out = check_win(game, 'X', 0, 3);
+    cr_assert_eq(out, 1);
+}
+
+Test(win_handling, win_diag_bottom)
+{
+    game_t *game = malloc(sizeof(game_t));
+    int out = 0;
+
+    init_game(game);
+    init_map(game);
+    game->map[0][0] = 'X';
+    game->map[1][1] = 'X';
+    game->map[2][2] = 'X';
+    game->map[3][3] = 'X';
+    out = check_win(game, 'X', 0, 0);
+    cr_assert_eq(out, 1);
+}
