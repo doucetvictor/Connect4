@@ -41,12 +41,14 @@ static void init_game(game_t *game)
 
 static int error_handling(game_t *game)
 {
-    int slots = game->width * game->height;
-
+    if (game->avatar1 == game->referee || game->avatar2 == game->referee) {
+        my_fprintf(2, "Error: Similar avatar and referee\n");
+        return (0);
+    }
     if (game->avatar1 == game->avatar2) {
         my_fprintf(2, "Error: Same avatar for both players\n");
         return (0);
-    } else if (slots < 20) {
+    } else if (game->width * game->height < 20) {
         my_fprintf(2, "Error: Too small grid\n");
         return (0);
     }
