@@ -9,7 +9,8 @@ SRC =	src/connect.c \
 	src/display.c \
 	src/input.c \
 	src/options.c \
-	src/loop.c
+	src/loop.c \
+	src/win.c
 
 MAIN = 	src/main.c
 
