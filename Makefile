@@ -7,7 +7,8 @@
 
 SRC =	src/connect.c \
 	src/display.c \
-	src/input.c
+	src/input.c \
+	src/options.c
 
 MAIN = 	src/main.c
 
