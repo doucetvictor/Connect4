@@ -13,7 +13,7 @@
 static int check_number(int i, int argc, char **argv, int *ptr)
 {
     char *str = NULL;
-    
+
     if (argc <= i + 1) {
         my_fprintf(2, "Error: Missing argument with %s\n", argv[i]);
         return (-1);
@@ -63,7 +63,7 @@ static int check_argument(int i, int argc, char **argv, game_t *game)
 int get_options(int argc, char **argv, game_t *game)
 {
     int result = 1;
-    
+
     for (int i = 1; i < argc && i > -1; i++) {
         result = check_argument(i, argc, argv, game);
         if (result == -1) {

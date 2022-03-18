@@ -42,7 +42,7 @@ static void init_game(game_t *game)
 static int error_handling(game_t *game)
 {
     int slots = game->width * game->height;
-    
+
     if (game->avatar1 == game->avatar2) {
         my_fprintf(2, "Error: Same avatar for both players\n");
         return (0);
