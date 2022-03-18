@@ -10,6 +10,8 @@
 
 int connect(int argc, char **argv);
 
+void board_display(char **map);
+
 int get_player_choice(char c);
 
 #endif
