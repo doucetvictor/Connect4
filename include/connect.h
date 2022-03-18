@@ -20,5 +20,6 @@ typedef struct game_s {
 int connect(int argc, char **argv);
 int get_options(int argc, char **argv, game_t *game);
 int get_player_choice(char c);
+void board_display(char **map);
 
 #endif
