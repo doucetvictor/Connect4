@@ -9,7 +9,8 @@ SRC =	src/connect.c \
 	src/display.c \
 	src/input.c \
 	src/options.c \
-	src/win.c
+	src/win.c \
+	src/win_referee.c
 
 MAIN = 	src/main.c
 
